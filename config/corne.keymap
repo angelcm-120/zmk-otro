@@ -63,7 +63,7 @@
 &rgb_ug RGB_EFF  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans           &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans           &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                                 &trans  &trans  &trans    &trans  &trans  &trans
+                                 &trans  &mo 3   &trans    &trans  &mo 3   &trans
             >;
         };
     };
