@@ -1,3 +1,22 @@
+/* ========================================
+FileName: corne.keymap
+Date: 15:17 23.September.2022
+Author: Marcos Chow Castro
+Email: mctechnology170318@gmail.com
+GitHub: https://github.com/mctechnology17
+Brief: keymap for the wireless corne keyboard
+                             ╔═╦═╦═╗
+                      ╔════╗ ║║║║║╔╝
+                      ║╔╗╔╗║ ║║║║║╚╗
+                      ╚╝║║╚╝ ║╠═╩╩═╝
+                        ║╠═╦═╣╚╦═╦╦═╦╗╔═╦═╦╦╗
+                        ║║╩╣═╣║║║║║╬║╚╣╬║╬║║║
+                        ╚╩═╩═╩╩╩╩═╩═╩═╩═╬╗╠╗║
+                                        ╚═╩═╝
+Copyright (c) 2020 The ZMK Contributors
+SPDX-License-Identifier: MIT
+========================================= */
+// ### include {{{
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
@@ -19,6 +38,23 @@
 // ### macros {{{
    macros {
       #include "macros.dtsi"
+   };
+// }}}
+// ### combos {{{
+   combos {
+      compatible = "zmk,combos";
+
+      unlock {
+         bindings = <&to DEFAULT>;
+         key-positions = <LT5 LH0 RH0 RT5>;
+         layers = <LOCK>;
+      };
+
+      lock {
+         bindings = <&to LOCK>;
+         key-positions = <LT5 RH0>;
+         layers = <LX_>;
+      };
    };
 // }}}
    // ### conditional_layers {{{
@@ -48,35 +84,15 @@
          label = "AngelCM";
          bindings = <
             MOUSE_TAB   DE_Q   DE_W   DE_E   DE_R      DE_T                             DE_Z        DE_U  DE_I         DE_O     DE_P         DE_BSPC
-            DE_LSHFT    DE_A   DE_S   DE_D   DE_F      DE_G                             DE_H        DE_J  DE_K         DE_L     &ene_small    DE_GRV
+            DE_LSHFT    DE_A   DE_S   DE_D   DE_F      DE_G                             DE_H        DE_J  DE_K         DE_L     &ene_small   DE_GRV
             DE_LCTRL    DE_Y   DE_X   DE_C   DE_V      DE_B                             DE_N        DE_M  LSHFT_COMMA  DE_DOT   DE_MINS      DE_RET
                                              DE_RALT  NUMBER_SPACE  DE_SPACE  DE_SPACE  SYMBOL_RGUI  DE_LGUI
             >;
       };
       // }}}
-      // ### number_layer {{{
-      number_layer {
-       /*.-------------------------------------------------.                         .-------------------------------------------------.
-         |   0     |   1   |   2   |   3   |   -   |   +   |                         |   ß   |   Ü   |   Ä   |   Ö   |   Ñ   |BACKSPC  |
-         |---------+-------+-------+-------+-------+-------|                         |-------+-------+-------+-------+-------+---------|
-         |CAPS_LOCK|   4   |   5   |   6   |   /   |   *   |                         |   #   |   ~   |   ?   |   @   |  UP   |   ENTER |
-         |---------+-------+-------+-------+-------+-------|                         |-------+-------+-------+-------+-------+---------|
-         | SHIFT   |   7   |   8   |   9   |   %   |   =   |                         |   .   |   ´   |   `   |  LEFT |  DOWN |   RIGHT |
-         '----------------------------------------------------------|       |----------------------------------------------------------'
-                                   |  CTRL |  CMD  |     SPACE      |       |        |  LSFT |      ALTGR    |
-                                   '--------------------------------'       '--------------------------------'*/
-         label = "NUMBER";
-         bindings = <
-         DE_0      DE_1   DE_2   DE_3    DE_MINS   DE_PLUS                     DE_SS    DE_UDIA  DE_ADIA    DE_ODIA  &ene_small DE_BSPC
-         DE_CAPS   DE_4   DE_5   DE_6    DE_SLSH   DE_ASTR                     DE_HASH  DE_TILD  DE_QUES    DE_AT    DE_UP      DE_RET
-         DE_LSHFT  DE_7   DE_8   DE_9    DE_PERC   DE_EQL                      DE_DOT   DE_ACUT  DE_GRV     DE_LEFT  DE_DOWN    DE_RIGHT
-                                         DE_LCTRL  DE_LGUI    DE_SPACE   XXX   DE_LSHFT DE_RALT
-            >;
-      };
-      // }}}
       // ### symbol_layer {{{
       symbol_layer {
-       /*.------------------------------------------------.          TODO	   .-------------------------------------------------.
+       /*.------------------------------------------------.          TODO:          .-------------------------------------------------.
          |   $    |   (   |   )   |   [   |   ]   |   &   |                         |  `    |   '   |   ´   |   "   |       |BACKSPC  |
          |--------+-------+-------+-------+-------+-------|                         |-------+-------+-------+-------+-------+---------|
          |   %    |   {   |   }   |   ^   |PAGE_UP|   #   |                         |   \   |   |   |   /   |  &    |  UP   |   ENTER |
@@ -175,4 +191,18 @@
          >;
       };
       // }}}
+   // ### lock  {{{
+      lock {
+         label = "Lock";
+         bindings = <
+            &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+            &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+            &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+                                 &none  &none  &none  &none  &none  &none
+            >;
+        };
+   //}}}
+   };
 };
+
+// vim: filetype=dts fdm=marker:
