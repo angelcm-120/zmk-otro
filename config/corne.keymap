@@ -31,7 +31,7 @@ SPDX-License-Identifier: MIT
 #include "config_zmk.h"
 #include "mouse.dtsi"
 &led_strip {
-    chain-length = <41>;
+    chain-length = <27>;
 };
 // }}}
 / {
@@ -87,6 +87,26 @@ SPDX-License-Identifier: MIT
             DE_LSHFT    DE_A   DE_S   DE_D   DE_F      DE_G                             DE_H        DE_J  DE_K         DE_L     &ene_small   DE_GRV
             DE_LCTRL    DE_Y   DE_X   DE_C   DE_V      DE_B                             DE_N        DE_M  LSHFT_COMMA  DE_DOT   DE_MINS      DE_RET
                                              DE_RALT  NUMBER_SPACE  DE_SPACE  DE_SPACE  SYMBOL_RGUI  DE_LGUI
+            >;
+      };
+      // }}}
+      // ### number_layer {{{
+      number_layer {
+       /*.-------------------------------------------------.                         .-------------------------------------------------.
+         |   0     |   1   |   2   |   3   |   -   |   +   |                         |   ß   |   Ü   |   Ä   |   Ö   |   Ñ   |BACKSPC  |
+         |---------+-------+-------+-------+-------+-------|                         |-------+-------+-------+-------+-------+---------|
+         |CAPS_LOCK|   4   |   5   |   6   |   /   |   *   |                         |   #   |   ~   |   ?   |   @   |  UP   |   ENTER |
+         |---------+-------+-------+-------+-------+-------|                         |-------+-------+-------+-------+-------+---------|
+         | SHIFT   |   7   |   8   |   9   |   %   |   =   |                         |   .   |   ´   |   `   |  LEFT |  DOWN |   RIGHT |
+         '----------------------------------------------------------|       |----------------------------------------------------------'
+                                   |  CTRL |  CMD  |     SPACE      |       |        |  LSFT |      ALTGR    |
+                                   '--------------------------------'       '--------------------------------'*/
+         label = "NUMBER";
+         bindings = <
+         DE_0      DE_1   DE_2   DE_3    DE_MINS   DE_PLUS                     DE_SS    DE_UDIA  DE_ADIA    DE_ODIA  &ene_small DE_BSPC
+         DE_CAPS   DE_4   DE_5   DE_6    DE_SLSH   DE_ASTR                     DE_HASH  DE_TILD  DE_QUES    DE_AT    DE_UP      DE_RET
+         DE_LSHFT  DE_7   DE_8   DE_9    DE_PERC   DE_EQL                      DE_DOT   DE_ACUT  DE_GRV     DE_LEFT  DE_DOWN    DE_RIGHT
+                                         DE_LCTRL  DE_LGUI    DE_SPACE   XXX   DE_LSHFT DE_RALT
             >;
       };
       // }}}
