@@ -31,7 +31,7 @@ SPDX-License-Identifier: MIT
 #include "config_zmk.h"
 #include "mouse.dtsi"
 &led_strip {
-    chain-length = <10>;
+    chain-length = <41>;
 };
 // }}}
 / {
